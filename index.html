@@ -77,6 +77,16 @@ a:hover{color:#f5d050}
 .footer-inner a:hover{color:var(--accent)}
 .back-top{border:1px solid var(--border);padding:.2rem .55rem;transition:color .15s,border-color .15s}
 .back-top:hover{color:var(--accent)!important;border-color:var(--accent)}
+/* ── PROYECTOS ───────────────────────────────────── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.project-card{border:1px solid var(--border);background:var(--surface);padding:1.5rem;transition:border-color .15s,background .15s}
+.project-card:hover{border-color:var(--accent);background:#22221a}
+.project-name{color:var(--accent);font-size:.95rem;font-weight:bold;margin-bottom:.3rem}
+.project-url{font-size:.74rem;color:var(--muted);display:block;margin-bottom:.85rem;letter-spacing:.03em}
+.project-url:hover{color:var(--accent)}
+.project-desc{font-size:.86rem;color:var(--text);line-height:1.6}
+.project-tags{margin-top:.85rem;display:flex;flex-wrap:wrap;gap:.35rem}
+.project-tag{font-size:.68rem;color:var(--muted);border:1px solid var(--border);padding:.1rem .4rem;letter-spacing:.04em}
 /* ── RESPONSIVE ──────────────────────────────────── */
 @media(max-width:700px){
   .nav-toggle{display:block}
@@ -96,6 +106,7 @@ a:hover{color:#f5d050}
     <div class="nav-end" id="nav-end">
       <ul class="nav-links">
         <li><a href="#laboral">Laboral</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#libros">Libros</a></li>
         <li><a href="#musica">Música</a></li>
       </ul>
@@ -130,14 +141,62 @@ a:hover{color:#f5d050}
            href="https://www.linkedin.com/in/rpolverini/"
            target="_blank" rel="noopener"
            aria-label="LinkedIn – Ramiro Polverini"
-           style="top:15%;left:63%;width:35%;height:6%"></a>
+           style="top:22%;left:67%;width:30%;height:6%"></a>
         <a class="cv-link"
            href="https://github.com/rpolverini"
            target="_blank" rel="noopener"
            aria-label="GitHub – rpolverini"
-           style="top:21%;left:63%;width:35%;height:6%"></a>
+           style="top:28%;left:67%;width:30%;height:6%"></a>
       </div>
       <p class="scroll-hint">&#x2193;&nbsp;scroll</p>
+    </section>
+
+    <!-- ═══ PROYECTOS ═══ -->
+    <section id="proyectos" class="section">
+      <div class="section-inner">
+        <div class="section-heading"><h2>Proyectos</h2></div>
+        <p class="section-desc">
+          Productos propios construidos para resolver problemas reales de negocios argentinos.
+        </p>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <p class="project-name">tuMenu</p>
+            <a class="project-url" href="https://tumenu.com.ar" target="_blank" rel="noopener">tumenu.com.ar</a>
+            <p class="project-desc">
+              Plataforma de menús digitales para restaurantes, bares y cafeterías.
+              El local crea su menú online, genera un código QR y sus clientes
+              lo consultan desde el celular sin descargar nada. Actualizaciones
+              en tiempo real, sin impresión, sin intermediarios.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">SaaS</span>
+              <span class="project-tag">Gastronomía</span>
+              <span class="project-tag">QR</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">Django</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <p class="project-name">TuWebYa</p>
+            <a class="project-url" href="https://tuwebya.ar" target="_blank" rel="noopener">tuwebya.ar</a>
+            <p class="project-desc">
+              Sitios web profesionales para PyMEs y emprendedores argentinos.
+              Landing pages y tiendas online listas en 72 horas, con hosting
+              incluido, diseño adaptado al negocio y sin costo de desarrollo inicial.
+              El objetivo: que cualquier negocio tenga presencia digital real.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Agencia</span>
+              <span class="project-tag">PyMEs</span>
+              <span class="project-tag">Web</span>
+              <span class="project-tag">E-commerce</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <!-- ═══ LIBROS ═══ -->
