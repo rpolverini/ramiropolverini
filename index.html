@@ -5,8 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ramiro Polverini – SR Backend Engineer</title>
   <meta name="description" content="Portfolio personal de Ramiro Polverini – SR Backend Engineer, Solucionador de Problemas. Playa Dorada, Mar Chiquita, Argentina.">
-  <link rel="preload" as="image" href="images/graphic_cv/GraphicCV.legacy.Spanish.webp" type="image/webp">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Preload LCP image with responsive srcset -->
+  <link rel="preload" as="image"
+    imagesrcset="images/graphic_cv/GraphicCV.legacy.Spanish-840w.webp 840w,
+                 images/graphic_cv/GraphicCV.legacy.Spanish.webp 1672w"
+    imagesizes="100vw"
+    fetchpriority="high">
+
+  <style>
+/* ── RESET ──────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* ── TOKENS ─────────────────────────────────────── */
+:root{
+  --bg:#181810;--surface:#1e1e14;--border:#3a3a22;
+  --text:#c4bf9b;--muted:#78745e;--accent:#e8b818;
+  --green:#5ab85a;--nav-h:48px
+}
+/* ── BASE ────────────────────────────────────────── */
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Courier New',Courier,monospace;font-size:16px;line-height:1.65}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#f5d050}
+/* ── NAVBAR ──────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.5rem;gap:1.5rem}
+.nav-brand{color:var(--accent);font-weight:bold;font-size:.9rem;letter-spacing:.04em;flex-shrink:0}
+.nav-brand span{color:var(--text);font-weight:normal}
+.nav-end{margin-left:auto;display:flex;align-items:center;gap:1.5rem}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+.nav-links a{color:var(--muted);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:color .15s}
+.nav-links a:hover{color:var(--accent)}
+.nav-lang{display:flex;gap:.4rem}
+.nav-lang a{font-size:.75rem;color:var(--muted);border:1px solid var(--border);padding:.1rem .45rem;letter-spacing:.05em;transition:color .15s,border-color .15s}
+.nav-lang a:hover,.nav-lang a[aria-current]{color:var(--accent);border-color:var(--accent)}
+.nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--accent);padding:.2rem .55rem;font-size:1.1rem;cursor:pointer;font-family:inherit;line-height:1;transition:border-color .15s}
+.nav-toggle:hover{border-color:var(--accent)}
+/* ── HERO ────────────────────────────────────────── */
+#laboral{padding-top:var(--nav-h);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg)}
+.cv-wrap{position:relative;width:100%;max-width:1672px;margin:0 auto}
+.cv-wrap img{display:block;width:100%;height:auto}
+.cv-link{position:absolute;display:block;cursor:pointer;border-radius:2px;transition:background .15s,outline .15s}
+.cv-link:hover{background:rgba(232,184,24,.10);outline:1px solid rgba(232,184,24,.30)}
+.scroll-hint{margin-top:.75rem;color:var(--muted);font-size:.78rem;letter-spacing:.1em;animation:bob 1.8s ease-in-out infinite;user-select:none}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+/* ── SECTIONS ────────────────────────────────────── */
+.section{padding:5rem 1.5rem;border-top:1px solid var(--border)}
+.section-inner{max-width:860px;margin:0 auto}
+.section-heading{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.section-heading h2{color:var(--accent);font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+.section-heading h2::before{content:'> '}
+.section-heading::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-desc{color:var(--muted);font-size:.88rem;margin-bottom:1.75rem;max-width:600px}
+/* ── LIBROS ──────────────────────────────────────── */
+.book-list{display:flex;flex-direction:column;gap:.45rem}
+.book-item{display:flex;align-items:baseline;gap:.75rem;padding:.55rem 1rem;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.86rem;transition:border-color .15s,color .15s,background .15s}
+.book-item::before{content:'[PDF]';color:var(--muted);font-size:.72rem;flex-shrink:0}
+.book-item.epub::before{content:'[EPUB]'}
+.book-item:hover{color:var(--accent);border-color:var(--accent);background:#22221a}
+/* ── MUSICA ──────────────────────────────────────── */
+.yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.yt-card{position:relative;display:block;border:1px solid var(--border);overflow:hidden;aspect-ratio:16/9;background:var(--surface);transition:border-color .15s}
+.yt-card:hover{border-color:var(--accent)}
+.yt-card img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .2s}
+.yt-card:hover img{opacity:.72}
+.yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:rgba(255,255,255,.9);text-shadow:0 0 14px rgba(0,0,0,.85);pointer-events:none;transition:transform .2s}
+.yt-card:hover .yt-play{transform:scale(1.15)}
+/* ── FOOTER ──────────────────────────────────────── */
+.site-footer{border-top:1px solid var(--border);padding:1.75rem 1.5rem;font-size:.76rem;color:var(--muted)}
+.footer-inner{max-width:860px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-inner a{color:var(--muted)}
+.footer-inner a:hover{color:var(--accent)}
+.back-top{border:1px solid var(--border);padding:.2rem .55rem;transition:color .15s,border-color .15s}
+.back-top:hover{color:var(--accent)!important;border-color:var(--accent)}
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media(max-width:700px){
+  .nav-toggle{display:block}
+  .nav-end{display:none;flex-direction:column;align-items:flex-start;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:1rem 1.5rem;gap:1rem}
+  .nav-end.open{display:flex}
+  .nav-links{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .section{padding:3rem 1rem}
+  .yt-grid{grid-template-columns:1fr}
+}
+  </style>
 </head>
 <body>
 
@@ -28,35 +108,29 @@
 
   <main>
 
-    <!-- ═══════════════════════════════════════
-         LABORAL — CV gráfico a pantalla completa
-         ═══════════════════════════════════════ -->
+    <!-- ═══ LABORAL — CV gráfico a pantalla completa ═══ -->
     <section id="laboral">
       <div class="cv-wrap">
         <picture>
-          <source srcset="images/graphic_cv/GraphicCV.legacy.Spanish.webp" type="image/webp">
+          <source type="image/webp"
+            srcset="images/graphic_cv/GraphicCV.legacy.Spanish-840w.webp 840w,
+                    images/graphic_cv/GraphicCV.legacy.Spanish.webp 1672w"
+            sizes="100vw">
           <img
             src="images/graphic_cv/GraphicCV.legacy.Spanish.png"
             alt="CV Gráfico – Ramiro Polverini, SR Backend Engineer"
-            width="1672"
-            height="941"
-            fetchpriority="high"
-          >
+            width="1672" height="941"
+            fetchpriority="high">
         </picture>
-
         <!--
-          Hotspots sobre el CV (PERFIL.SYS, esquina superior derecha).
-          Coordenadas aproximadas sobre imagen 1672×941:
-            LinkedIn: y≈155-190px (16.5%–20.2%), x≈1062px+ (63.5%)
-            GitHub:   y≈193-228px (20.5%–24.2%), x≈1062px+ (63.5%)
-          Ajustar top/height si la imagen cambia.
+          Hotspots PERFIL.SYS (esquina sup-der, imagen 1672×941).
+          LinkedIn: y≈15.7%, GitHub: y≈20.5%
         -->
         <a class="cv-link"
            href="https://www.linkedin.com/in/rpolverini/"
            target="_blank" rel="noopener"
            aria-label="LinkedIn – Ramiro Polverini"
            style="top:15%;left:63%;width:35%;height:6%"></a>
-
         <a class="cv-link"
            href="https://github.com/rpolverini"
            target="_blank" rel="noopener"
@@ -66,70 +140,64 @@
       <p class="scroll-hint">&#x2193;&nbsp;scroll</p>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         LIBROS — Algo de Lectura
-         ═══════════════════════════════════════ -->
+    <!-- ═══ LIBROS ═══ -->
     <section id="libros" class="section">
       <div class="section-inner">
         <div class="section-heading"><h2>Algo de Lectura</h2></div>
         <p class="section-desc">
-          Libros que dejaron su marca. Algunos son obras de sabiduría
-          en muy pocas líneas, otros tienen partes interesantes y otras
-          rescatables. Espero que también te sirvan.
+          Libros que dejaron su marca. Algunos son obras de sabiduría en muy pocas líneas,
+          otros tienen partes interesantes y otras rescatables. Espero que también te sirvan.
         </p>
         <div class="book-list">
-          <a class="book-item" href="libros/los-4acuerdos.pdf">
-            Los Cuatro Acuerdos (Sabiduría Tolteca)
-          </a>
-          <a class="book-item" href="libros/El_codigo.pdf">
-            El Código de las Mentes Extraordinarias
-          </a>
-          <a class="book-item" href="libros/Los_7_Habitos.pdf">
-            Los 7 Hábitos de la Gente Altamente Efectiva
-          </a>
-          <a class="book-item" href="libros/Es_facil_dejar_de_fumar.pdf">
-            Easy Way para Dejar de Fumar
-          </a>
-          <a class="book-item epub" href="libros/Mastering_Ethereum.epub">
-            Mastering Ethereum – Andreas M. Antonopoulos
-          </a>
-          <a class="book-item" href="libros/la_dieta_del_delfin.pdf">
-            La Dieta del Delfín – El Agua de Mar como Alimento
-          </a>
+          <a class="book-item" href="libros/los-4acuerdos.pdf">Los Cuatro Acuerdos (Sabiduría Tolteca)</a>
+          <a class="book-item" href="libros/El_codigo.pdf">El Código de las Mentes Extraordinarias</a>
+          <a class="book-item" href="libros/Los_7_Habitos.pdf">Los 7 Hábitos de la Gente Altamente Efectiva</a>
+          <a class="book-item" href="libros/Es_facil_dejar_de_fumar.pdf">Easy Way para Dejar de Fumar</a>
+          <a class="book-item epub" href="libros/Mastering_Ethereum.epub">Mastering Ethereum – Andreas M. Antonopoulos</a>
+          <a class="book-item" href="libros/la_dieta_del_delfin.pdf">La Dieta del Delfín – El Agua de Mar como Alimento</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         MUSICA — El Rincón del Tonga
-         ═══════════════════════════════════════ -->
+    <!-- ═══ MUSICA ═══ -->
     <section id="musica" class="section">
       <div class="section-inner">
         <div class="section-heading"><h2>El Rincón del Tonga</h2></div>
         <p class="section-desc">
-          Un amigazo, Gran Músico, que cada tanto recomienda por Telegram
-          bandas tan buenas como bizarras. Merecían su lugar.
-          (De hecho se hizo toda esta web para este lugar :D)
+          Un amigazo, Gran Músico, que cada tanto recomienda por Telegram bandas tan buenas
+          como bizarras. Merecían su lugar. (De hecho se hizo toda esta web para este lugar :D)
         </p>
         <div class="yt-grid">
           <a class="yt-card" href="https://www.youtube.com/watch?v=iPDzlSda8P8"
              target="_blank" rel="noopener" aria-label="Ver video en YouTube">
-            <img src="images/yt/iPDzlSda8P8.jpg" alt="" width="480" height="360" loading="lazy">
+            <picture>
+              <source srcset="images/yt/iPDzlSda8P8.webp" type="image/webp">
+              <img src="images/yt/iPDzlSda8P8.jpg" alt="" width="480" height="360" loading="lazy">
+            </picture>
             <span class="yt-play">&#9654;</span>
           </a>
           <a class="yt-card" href="https://www.youtube.com/watch?v=MuTVmB80Cak"
              target="_blank" rel="noopener" aria-label="Ver video en YouTube">
-            <img src="images/yt/MuTVmB80Cak.jpg" alt="" width="480" height="360" loading="lazy">
+            <picture>
+              <source srcset="images/yt/MuTVmB80Cak.webp" type="image/webp">
+              <img src="images/yt/MuTVmB80Cak.jpg" alt="" width="480" height="360" loading="lazy">
+            </picture>
             <span class="yt-play">&#9654;</span>
           </a>
           <a class="yt-card" href="https://www.youtube.com/watch?v=lpZTxSGl_vs"
              target="_blank" rel="noopener" aria-label="Ver video en YouTube">
-            <img src="images/yt/lpZTxSGl_vs.jpg" alt="" width="480" height="360" loading="lazy">
+            <picture>
+              <source srcset="images/yt/lpZTxSGl_vs.webp" type="image/webp">
+              <img src="images/yt/lpZTxSGl_vs.jpg" alt="" width="480" height="360" loading="lazy">
+            </picture>
             <span class="yt-play">&#9654;</span>
           </a>
           <a class="yt-card" href="https://www.youtube.com/watch?v=5fhE6Aqb_p0"
              target="_blank" rel="noopener" aria-label="Ver video en YouTube">
-            <img src="images/yt/5fhE6Aqb_p0.jpg" alt="" width="480" height="360" loading="lazy">
+            <picture>
+              <source srcset="images/yt/5fhE6Aqb_p0.webp" type="image/webp">
+              <img src="images/yt/5fhE6Aqb_p0.jpg" alt="" width="480" height="360" loading="lazy">
+            </picture>
             <span class="yt-play">&#9654;</span>
           </a>
         </div>
@@ -148,11 +216,11 @@
 
   <script>
     (function(){
-      var btn = document.getElementById('nav-toggle');
-      var menu = document.getElementById('nav-end');
-      btn.addEventListener('click', function(){
-        var open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
+      var btn=document.getElementById('nav-toggle');
+      var menu=document.getElementById('nav-end');
+      btn.addEventListener('click',function(){
+        var open=menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded',open);
       });
     })();
   </script>
