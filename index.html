@@ -19,7 +19,8 @@
   <nav>
     <div class="nav-inner">
       <span class="nav-brand">rpolverini<span>.com.ar</span></span>
-      <ul class="nav-links">
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">Sobre mí</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Proyectos</a></li>
@@ -294,6 +295,21 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile hamburger menu
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', function () {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   </script>
 
 </body>
